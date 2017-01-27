@@ -1,0 +1,28 @@
+//- 
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+     
+.navbar-right(ng-controller="mvNavBarLoginCtrl")
+    form.navbar-form(ng-hide = "identity.isAuthenticated()")
+        ul.nav.navbar-nav
+            li
+                a(href="/signup") Sign Up
+        .form-group
+            input.form-control(placeholder="Email",ng-model="username")
+        .form-group
+            input.form-control(type="password",placeholder="PassWord", ng-model="password")
+        button.btn.btn-primary(ng-click="signin(username, password)") Sign In
+        
+    ul.nav.navbar-nav.navbar-right(ng-show = "identity.isAuthenticated()")
+        li.dropdown
+            a.dropdown-toggle(href="", data-toggle="dropdown")
+                | {{ identity.currentUser.firstName + " " + identity.currentUser.lastName }}
+                b.caret
+            ul.dropdown-menu
+                li(ng-show="identity.currentUser.isAdmin()")
+                    a(href="/admin/users") User Admin
+                li
+                    a(href="/profile") Profile
+                li
+                    a(href="", ng-click= "signout()") Sign Out

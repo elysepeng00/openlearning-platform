@@ -1,0 +1,16 @@
+//- 
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+     
+
+.panel.panel-primary
+    .panel-heading.text-center New Courses
+    .panel-body
+        .row(ng-repeat="course in courses | orderBy:'published':true | limitTo:10")
+            
+            .col-md-9 
+                a(href="/courses/{{course._id}}") {{ course.title }}
+            .col-md-3 {{ course.published | date: 'MMM d'}}
+        
+        

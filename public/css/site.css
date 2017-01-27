@@ -1,0 +1,66 @@
+body {
+  padding-top: 69px;
+}
+.navbar-inverse {
+  background-color: #c89041;
+  border-color: #c89041;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff;
+  font-size: 23px;
+}
+.navbar-header a.navbar-brand h6 {
+  color: #ccc;
+}
+.navbar-inverse .navbar-nav {
+  color: #fff;
+}
+.jumbotron {
+  background-image: url("header.jpg");
+  background-color: #f2f1e2;
+}
+.jumbotron p {
+  color: #c89041;
+}
+.panel-primary {
+  border-color: #fff;
+}
+.panel-primary .panel-heading {
+  color: #161515;
+  background-color: #fff;
+  border-color: #fff;
+}
+.panel-body {
+  background-color: #f2f1e2;
+}
+.panel-body a {
+  color: #c89041;
+}
+.table a {
+  color: #c89041;
+}
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+footer p {
+  border-top: 1px solid #d7e0e2;
+}
+.navbar-form .form-group {
+  margin-left: 10px;
+}
+.navbar-form button {
+  margin-left: 10px;
+}
+.top-padding-med {
+  padding-top: 10px;
+}
+.margin-left-med {
+  margin-left: 10px;
+}
+.toast-top-right {
+  top: 70px;
+}
+.toast-success {
+  background-color: #13987e;
+}

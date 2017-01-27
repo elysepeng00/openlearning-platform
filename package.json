@@ -1,15 +1,30 @@
 {
-  "name": "multivision",
+  "name": "openlearning",
   "version": "1.0.0",
   "description": " ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "4.4.x",
+    "npm": "2.15.x"
+  },
   "author": "Yujie",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
-    "jade": "^1.11.0"
+    "express-session": "^1.14.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.5.8",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
   }
 }
