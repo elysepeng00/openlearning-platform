@@ -21,8 +21,12 @@
                 b.caret
             ul.dropdown-menu
                 li(ng-show="identity.currentUser.isAdmin()")
+                    a(href="/admin/courses") Courses Admin
+                li(ng-show="identity.currentUser.isAdmin()")
                     a(href="/admin/users") User Admin
                 li
                     a(href="/profile") Profile
+                li(ng-show="identity.currentUser.isNotAdmin()")
+                    a(href="/myCourses") My Courses
                 li
                     a(href="", ng-click= "signout()") Sign Out

@@ -3,7 +3,7 @@
     To change this template file, choose Tools | Templates
     and open the template in the editor.
      
-.container
+.container(ng-controller="mvCourseDetailCtrl")
     h1 {{ course.title}}
     .row
         .col-md-6
@@ -28,7 +28,7 @@
                 .form-group
                     .col-md-10.col-md-offset-2
                         .pull-right
-                            button.btn.btn-primary(ng-click="join()", ng-disable="signupForm.$invalid") Join the course
+                            button.btn.btn-primary(ng-click="join(course.title)") Join the course
                            
 
     

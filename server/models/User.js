@@ -16,7 +16,8 @@ var userSchema = mongoose.Schema({
     },
     salt: {type:String, required:'{PATH} is required!'},
     hashed_pwd: {type:String, required:'{PATH} is required!'},
-    roles: [String]
+    roles: [String],
+    myCourses:[String]
 });
 
 userSchema.methods = {
@@ -36,8 +37,8 @@ function createDefaultUsers() {
         if (collection.length === 0) {
             var salt, hash;
             salt = encrypt.createSalt();
-            hash = encrypt.hashPwd(salt, 'joe');
-            User.create({firstName: 'Joe', lastName: 'Eames', username: 'joe', salt: salt, hashed_pwd: hash, roles: ['admin']});
+            hash = encrypt.hashPwd(salt, 'yujie');
+            User.create({firstName: 'Yujie', lastName: 'Peng', username: 'yujie', salt: salt, hashed_pwd: hash, roles: ['admin']});
             salt = encrypt.createSalt();
             hash = encrypt.hashPwd(salt, 'lily');
             User.create({firstName: 'Lily', lastName: 'Peark', username: 'lily', salt: salt, hashed_pwd: hash, roles: []});

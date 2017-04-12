@@ -44,6 +44,7 @@ exports.updateUser = function(req, res){
     req.user.firstName = userUpdates.firstName;
     req.user.lastName = userUpdates.lastName;
     req.user.username = userUpdates.username;
+    req.user.myCourses = userUpdates.myCourses;
     if(userUpdates.password && userUpdates.password.length > 0){
         req.user.sale = encrypt.createSalt();
         req.user.hashed_pwd = encrypt.hashPwd(req.user.sale, userUpdates.password);
@@ -52,7 +53,6 @@ exports.updateUser = function(req, res){
     req.user.save(function(err){
         if(err) {res.status(400); return res.send({reason:err.toStrong()});}
         res.send(req.user);
-    });
-    
-    
+    }); 
 };
+

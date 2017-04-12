@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q, mvUser) {
+angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q, mvUser,mvNotifier) {
     return {
         authenticateUser: function (username, password) {
             var dfd = $q.defer();
@@ -58,6 +58,26 @@ angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q, mvUser)
             return dfd.promise;  
         },
         
+        addToMyCourse: function(thisCourse) {
+            var dfd = $q.defer();
+            if(mvIdentity.currentUser.myCourses.indexOf(thisCourse) !== -1){
+                mvNotifier.notify("Course is already in your list");
+                return dfd.promise;
+            }
+          
+            var clone = angular.copy(mvIdentity.currentUser); 
+            mvIdentity.currentUser.myCourses.push(thisCourse); // newCourse array
+            var newUserData = mvIdentity.currentUser;
+            angular.extend(clone, newUserData);
+            clone.$update().then(function(){
+                mvIdentity.currentUser = clone;
+                dfd.resolve();
+            }, function(response){
+                dfd.reject(response.data.reason);
+            });
+            return dfd.promise;
+        },
+        
         authorizeCurrentUserForRoute: function(role){
             if(mvIdentity.isAuthorized(role)){
                 return true;
@@ -73,9 +93,6 @@ angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q, mvUser)
                 return $q.reject('not authorized');
             }
         },
-        
-        //joinCourse: function()
-            
 
     }
 })
